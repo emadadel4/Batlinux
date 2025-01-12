@@ -1,14 +1,12 @@
 S_Options=(
     "Edit Networks_List file" 
     "Edit Mac_List file" 
-    "Edit WPS_List file" 
-    "Update Script"
+    "Get latest Update"
 )
 S_Descriptions=(
     "Add or update Networks"
     "Add or update Mac's"
-    "Add or update WPS Networks"
-    "Get lastest update"
+    "Get latest update from repo"
 )
 S_Selected=0
 
@@ -41,11 +39,12 @@ Handle_Settings_Selection() {
         1) # Networks file
             mousepad "${BatLinux["Main_DIR"]}/${BatLinux["Networks_File"]}"
            ;;
-        2) # WPS File
-            mousepad "${BatLinux["Main_DIR"]}/${BatLinux["WPS_List_File"]}"
-           ;;
-        3) # Update
-           ;;
+        2) # Update
+            clear
+            echo "Getting Update.."
+            curl -LO https://github.com/emadadel4/Batlinux/releases/latest/download/Batlinux.sh; chmod 777 ./Batlinux.sh; ./Batlinux.sh
+            echo "Update Done!"
+            ;;
     esac
 }
 
