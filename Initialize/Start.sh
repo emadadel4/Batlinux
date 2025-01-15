@@ -5,6 +5,10 @@ BatLinux=(
     ["Mac_File"]="Mac_List.csv"
     ["Networks_File"]="Networks_List.csv"
     ["WPS_List_File"]="WPS_List.csv"
+    ["Settings_File"]="Settings.csv"
+    ["TextForg"]="97"
+    ["Background"]="41"
+    ["SelectionIcon"]=">"
 )
 
 if [ ! -d "${BatLinux["Main_DIR"]}" ]; then
@@ -19,6 +23,12 @@ fi
 if [ ! -f "${BatLinux["Main_DIR"]}/${BatLinux["Mac_File"]}" ]; then
     echo "Device,Mac,Note" > "${BatLinux["Main_DIR"]}/${BatLinux["Mac_File"]}"
     echo "Glaxy Note,7E:27:3C:87:EF:CC,This simple note" >> "${BatLinux["Main_DIR"]}/${BatLinux["Mac_File"]}"
+fi
+
+# Check if the file exists, if not, create it
+if [ ! -f "${BatLinux["Main_DIR"]}/${BatLinux["Settings_File"]}" ]; then
+    echo "Option,Value" > "${BatLinux["Main_DIR"]}/${BatLinux["Settings_File"]}"
+    echo "Key,null" >> "${BatLinux["Main_DIR"]}/${BatLinux["Settings_File"]}"
 fi
 
 if [ ! -f "${BatLinux["Main_DIR"]}/${BatLinux["Networks_File"]}" ]; then
