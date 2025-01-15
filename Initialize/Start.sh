@@ -36,24 +36,3 @@ if [ ! -f "${BatLinux["Main_DIR"]}/${BatLinux["Networks_File"]}" ]; then
     echo "Batlinux,C0:E3:FB:BF:F0:9E,1,No,This simple note" >> "${BatLinux["Main_DIR"]}/${BatLinux["Networks_File"]}"
     echo "Clown_Donald_trump,98:DA:C4:C7:6A:D8,8,Yes,This Bssid WPS Enabled" >> "${BatLinux["Main_DIR"]}/${BatLinux["Networks_File"]}"
 fi
-
-Check_Dependencies() {
-    
-    local deps=("airgeddon")
-    local missing=()
-    
-    for dep in "${deps[@]}"; do
-        if ! command -v "$dep" &> /dev/null; then
-            missing+=("$dep")
-        fi
-    done
-    
-    if [ ${#missing[@]} -ne 0 ]; then
-        echo -e "${RED}Missing dependencies: ${missing[*]}${NC}"
-        echo "Please installing.. missing dependencies."
-        apt install "${missing[@]}" -y
-        read -n 1 -s -r -p "Press any key to continue..."
-        return 1
-    fi
-    return 0
-}
