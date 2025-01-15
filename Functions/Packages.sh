@@ -9,13 +9,13 @@ function Packages() {
     # Function to draw menu
     Draw_Package_menu() {
         clear
-        echo "=== Package ==="
+        echo "=== Packages ==="
         echo "---------------------------------------------------"
         for i in "${!Packages[@]}"; do
-            IFS=':' read -r Name APT Note <<< "${Packages[$i]}"
+            IFS=':' read -r Name APT Description <<< "${Packages[$i]}"
             if [ $i -eq $selected ]; then
-                echo -e ">\e[96m$Name ($APT)\e[0m" "[Enter] to install."
-                selected_description="$Note"
+                echo -e "\e[97;41m> $Name ($APT)\e[0m"
+                selected_description="$Description"
             else
                 echo -e "$Name ($APT)"
             fi
