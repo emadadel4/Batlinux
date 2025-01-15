@@ -25,16 +25,18 @@ function Crack_WPS(){
     clear
     echo "=== WPS Networks ==="
     echo "---------------------------------------------------"
-    echo "ESSID • BSSID • Channel"
+    printf "%-25s • %-20s • %-8s\n" "ESSID" "BSSID" "Channel"
+    echo ""
         for i in "${!lines[@]}"; do
             IFS=',' read -r ESSID BSSID Channel WPS Note <<< "${lines[$i]}"
             if [ $i -eq $selected ]; then
-                echo -e ">\e[96m $ESSID • $BSSID • $Channel\e[0m"
+                printf "\e[${BatLinux[TextForg]};${BatLinux[Background]}m${BatLinux[SelectionIcon]} %-23s • %-18s • %-6s\e[0m\n" "$ESSID" "$BSSID" "$Channel"
                 selected_note="$Note"
             else
-                echo -e "$ESSID •  $BSSID •  $Channel"
+                printf "  %-23s • %-18s • %-6s\n" "$ESSID" "$BSSID" "$Channel"
             fi
         done
+        echo ""
         echo "---------------------------------------------------"
         echo "[Note] $selected_note"
     }
