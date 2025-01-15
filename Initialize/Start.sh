@@ -34,7 +34,7 @@ fi
 if [ ! -f "${BatLinux["Main_DIR"]}/${BatLinux["Networks_File"]}" ]; then
     echo "BSSID,ESSID,Channel,WPS,Note" > "${BatLinux["Main_DIR"]}/${BatLinux["Networks_File"]}"
     echo "Batlinux,C0:E3:FB:BF:F0:9E,1,No,This simple note" >> "${BatLinux["Main_DIR"]}/${BatLinux["Networks_File"]}"
-    echo "i have plan,98:DA:C4:C7:6A:D8,8,Yes,This Bssid WPS Enabled" >> "${BatLinux["Main_DIR"]}/${BatLinux["Networks_File"]}"
+    echo "Clown_Donald_trump,98:DA:C4:C7:6A:D8,8,Yes,This Bssid WPS Enabled" >> "${BatLinux["Main_DIR"]}/${BatLinux["Networks_File"]}"
 fi
 
 Check_Dependencies() {
