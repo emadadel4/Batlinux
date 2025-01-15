@@ -132,6 +132,4 @@ Main_Loop() {
     done
 }
 
-# Start the main loop
-Check_Dependencies
 Main_Loop
