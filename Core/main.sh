@@ -1,6 +1,5 @@
 options=(
     "Monitor Mode" 
-    "Start Airgeddon" 
     "Change MAC"
     "Network Monitoring"
     "Capture Handshake"
@@ -13,7 +12,6 @@ options=(
 )
 descriptions=(
     "Put interface in monitor mode"
-    "Launch Airgeddon wireless auditing tool."
     "Change MAC."
     "Monitor wireless networks."
     "Capture WPA/WPA2 handshakes from networks."
@@ -27,7 +25,7 @@ descriptions=(
 ⠀⠀⠀⠀⠀⠀⠀⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣶⣶⣶⣾⣿⣿⣿⣿⣶⣶⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠛⠛⠛⠛⠛⠛⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠟⠛⠛⠛⠛⠛⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠛⠛⠛⠛⠛⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠟⠛⠛⠛⠛⠛⠛⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -47,9 +45,9 @@ Draw_Main_Menu() {
     # Display menu options with selection indicator
     for i in ${!options[@]}; do
         if [ $i -eq $selected ]; then
-            echo -e "\e[96m> ${options[$i]}\e[0m"
+            printf "\e[${BatLinux[TextForg]};${BatLinux[Background]}m${BatLinux[SelectionIcon]} %-30s\e[0m\n" "${options[$i]}"
         else
-            echo "  ${options[$i]}"
+            printf "  %-30s\n" "${options[$i]}"
         fi
     done
     
@@ -64,32 +62,29 @@ Handle_Main_Selection() {
         0) # Monitor Mode
            Monitor_Mode
            ;;
-        1) # Start Airgeddon
-           x-terminal-emulator -e airgeddon
-           ;;
-        2) # Change MAC address
+        1) # Change MAC address
            MAC_change
            ;;
-        3) # Network Monitoring
+        2) # Network Monitoring
            Network_Monitoring
            ;;
-        4) # Capture Handshake
+        3) # Capture Handshake
            Capture_Handshake
            ;;
-        5) # WPS
+        4) # WPS
             Crack_WPS
             ;;   
-        6) # Install required packages
+        5) # Install required packages
             Packages
            ;;
-        7) # Restart NetworkManager
+        6) # Restart NetworkManager
            airmon-ng stop wlan0
            NetworkManager restart
            ;;
-        8) # Settings
+        7) # Settings
             Settings_Loop
            ;;
-        9) # About
+        8) # About
            xdg-open "https://github.com/emadadel4"
            return
            ;;
