@@ -29,7 +29,7 @@ Example Networks_List file:
 ```
 BSSID,ESSID,Channel,WPS,Note
 Batlinux,C0:E3:FB:BF:F0:9E,1,No,This simple note
-i have plan,98:DA:C4:C7:6A:D8,8,Yes,This Bssid WPS Enabled
+Clown_Donald_trump,98:DA:C4:C7:6A:D8,8,Yes,This Bssid WPS Enabled
 ``` 
 
 ## ⚠️ Disclaimer - إخلاء مسؤولية
