@@ -8,17 +8,19 @@ function Network_Monitoring(){
     clear
     echo "=== Network Monitoring ==="
     echo "---------------------------------------------------"
-    echo "ESSID • BSSID • Channel • WPS"
+    printf " %-25s %-20s %-8s %-4s\n" "ESSID" "BSSID" "Channel" "WPS"
+    echo ""
 
         for i in "${!lines[@]}"; do
             IFS=',' read -r ESSID BSSID Channel WPS Note <<< "${lines[$i]}"
             if [ $i -eq $selected ]; then
-                echo -e ">\e[96m $ESSID • $BSSID • $Channel • $WPS\e[0m"
+                printf "\e[${BatLinux[TextForg]};${BatLinux[Background]}m${BatLinux[SelectionIcon]} %-24s %-20s %-8s %-4s\e[0m\n" "$ESSID" "$BSSID" "$Channel" "$WPS"
                 selected_note="$Note"
             else
-                echo "$ESSID • $BSSID • $Channel"
+                printf " %-25s %-20s %-8s %-4s\n" "$ESSID" "$BSSID" "$Channel" "$WPS"
             fi
         done
+        echo ""
         echo "---------------------------------------------------"
         echo "[Note] $selected_note"
     }
