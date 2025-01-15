@@ -9,17 +9,20 @@ Draw_Mac_Menu() {
     clear
     echo "=== MAC Address ==="
     echo "----------------------------------------"
+    printf " %-20s %-20s\n" "Device" "MAC"
+    echo ""
     for i in "${!lines[@]}"; do
         IFS=',' read -r Device Mac Note <<< "${lines[$i]}"
         if [ $i -eq $selected ]; then
-            echo -e "> \e[96m$Device • $Mac\e[0m"
+            printf "\e[${BatLinux[TextForg]};${BatLinux[Background]}m${BatLinux[SelectionIcon]} %-19s %-20s\e[0m\n" "$Device" "$Mac"
             selected_note="$Note"
         else
-            echo "$Device ($Mac)"
+            printf " %-20s %-20s\n" "$Device" "$Mac"
         fi
     done
-        echo "----------------------------------------"
-        echo "[Note] $selected_note"
+    echo ""
+    echo "----------------------------------------"
+    echo "[Note] $selected_note"
 }
 
 Change_mac() {
