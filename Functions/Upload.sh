@@ -7,7 +7,7 @@ function Upload_Handshake() {
     read -p "Do you want to upload the .cap file? (y/n): " upload_choice
     if [[ "$upload_choice" == "y" || "$upload_choice" == "Y" ]]; then
         echo "Proceeding with upload..."
-        curl -F "file=@${BatLinux["Main_DIR"]}/${BatLinux["HandShakes_DIR"]}/Bebo.cap" -F "key=$key" https://wpa-sec.stanev.org/my-nets
+        curl -F "file=@$handshake" -F "key=$key" https://wpa-sec.stanev.org/my-nets
         read -n1 -p "Press any key to continue"
     elif [[ "$upload_choice" == "n" || "$upload_choice" == "N" ]]; then
         echo "You chose not to upload the file."
