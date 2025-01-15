@@ -19,7 +19,7 @@ Draw_Settings_Menu() {
     # Display menu options with selection indicator
     for i in ${!S_Options[@]}; do
         if [ $i -eq $S_Selected ]; then
-            echo -e "\e[96m> ${S_Options[$i]}\e[0m"
+            echo -e "\e[${BatLinux[TextForg]};${BatLinux[Background]}m${BatLinux[SelectionIcon]} ${S_Options[$i]}\e[0m"
         else
             echo "${S_Options[$i]}"
         fi
