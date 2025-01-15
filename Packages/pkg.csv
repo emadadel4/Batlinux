@@ -1,4 +1,5 @@
-Name,Apt,Note
+Name,Apt,Description
 Aircrack,aircrack-ng,Airgeddon is a menu driven 3rd party tools wrapper to audit wireless networks with many features
 Nmap,nmap,Nmap is a network mapping and security auditing tool
 Bettercap,bettercap,Bettercap is an interactive framework and toolset for wireless security research and attack
+Tilix,tilix,Tilix is a terminal emulator for Linux
