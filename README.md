@@ -13,9 +13,9 @@ Ethical hacking utilities for testing Wi-Fi network security and monitoring.
 
 ## Uasge
 
-- <pre><code>curl -LO https://github.com/emadadel4/Batlinux/releases/latest/download/Batlinux.sh</code></pre>
-- <pre><code>chmod 777 ./Batlinux.sh</code></pre>
-- <pre><code>./Batlinux.sh</code></pre>
+- <pre><code>curl -LO https://github.com/emadadel4/Batlinux/releases/latest/download/batlinux.sh</code></pre>
+- <pre><code>chmod 777 ./batlinux.sh</code></pre>
+- <pre><code>./batlinux.sh</code></pre>
 
 ## Add your Networks and Mac's
 
