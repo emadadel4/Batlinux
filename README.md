@@ -7,15 +7,15 @@ Ethical hacking utilities for testing Wi-Fi network security and monitoring.
 
 ![image](https://github.com/user-attachments/assets/8c1c2c20-4dc4-4bcc-ad3e-393907a02a14)
 
-
-
 </div>
 
-## Dependencies
+##  Installing dependencies
 `aircrack`
 
 `bully`
 
+<br>
+<br>
 
 ## Uasge
 
