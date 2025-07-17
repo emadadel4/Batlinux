@@ -226,10 +226,10 @@ VAI_configure_autoinstall() {
     hostname_expr='[.[]|select(.operstate=="UP").addr_info.[]|select(.scope=="global").local].[0]'
     hostname="$(ip --json -r a | jq -r "$hostname_expr")"
     target="/mnt"
-    timezone="America/Chicago"
+    timezone="Africa/Cairo"
     keymap="us"
     libclocale="en_US.UTF-8"
-    username="voidlinux"
+    username="batlinux"
     end_action="shutdown"
     end_script="/bin/true"
 
