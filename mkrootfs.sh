@@ -199,7 +199,7 @@ run_cmd_chroot "$ROOTFS" "xbps-reconfigure -a"
 # chrooted.  We also remove the lock file in this step to clean up the
 # lock on the passwd database, lest it be left in the system and
 # propogated to other points.
-info_msg "Setting the default root password ('voidlinux')"
+info_msg "Setting the default root password ('batlinux')"
 if [ ! -f "$ROOTFS/etc/shadow" ] ; then
     run_cmd_chroot "$ROOTFS" pwconv
 fi
