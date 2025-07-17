@@ -229,7 +229,7 @@ VAI_configure_autoinstall() {
     timezone="Africa/Cairo"
     keymap="us"
     libclocale="en_US.UTF-8"
-    username="batlinux"
+    username="bat"
     end_action="shutdown"
     end_script="/bin/true"
 
