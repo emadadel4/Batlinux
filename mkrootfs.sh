@@ -203,7 +203,7 @@ info_msg "Setting the default root password ('voidlinux')"
 if [ ! -f "$ROOTFS/etc/shadow" ] ; then
     run_cmd_chroot "$ROOTFS" pwconv
 fi
-echo root:voidlinux | run_cmd_chroot "$ROOTFS" "chpasswd -c SHA512" || die "Could not set default credentials"
+echo root:batlinux | run_cmd_chroot "$ROOTFS" "chpasswd -c SHA512" || die "Could not set default credentials"
 rm -f "$ROOTFS/etc/.pwd.lock"
 
 # At this point we're done running things in the chroot and we can
@@ -218,7 +218,7 @@ rm -rf "$ROOTFS/var/cache/*" 2>/dev/null
 
 # Finally we can compress the tarball, the name will include the
 # architecture and the date on which the tarball was built.
-: "${FILENAME:=void-${XBPS_TARGET_ARCH}-ROOTFS-$(date -u '+%Y%m%d').tar.xz}"
+: "${FILENAME:=bat-${XBPS_TARGET_ARCH}-ROOTFS-$(date -u '+%Y%m%d').tar.xz}"
 run_cmd "tar cp --posix --xattrs --xattrs-include='*' -C $ROOTFS . | xz -T${COMPRESSOR_THREADS:-0} -9 > $FILENAME "
 
 # Now that we have the tarball we don't need the rootfs anymore, so we
