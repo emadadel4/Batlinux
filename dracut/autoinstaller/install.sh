@@ -17,7 +17,7 @@ VAI_print_step() {
 VAI_welcome() {
     clear
     printf "=============================================================\n"
-    printf "================ Void Linux Auto-Installer ==================\n"
+    printf "================ Bat Linux Auto-Installer ==================\n"
     printf "=============================================================\n"
 }
 
@@ -153,6 +153,9 @@ VAI_configure_grub() {
 
     # Choose the newest kernel
     kernel_version="$(xbps-uhelper -r ${target} version linux | sed 's/_.*//')"
+
+    # Enable os-prober
+    echo 'GRUB_DISABLE_OS_PROBER=false' >> "${target}/etc/default/grub"
 
     # Install grub
     chroot "${target}" grub-install "${disk}"
