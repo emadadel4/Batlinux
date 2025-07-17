@@ -640,7 +640,7 @@ menu_hostname() {
 
 set_hostname() {
     local hostname="$(get_option HOSTNAME)"
-    echo "${hostname:-void}" > $TARGETDIR/etc/hostname
+    echo "${hostname:-bat}" > $TARGETDIR/etc/hostname
 }
 
 menu_rootpassword() {
